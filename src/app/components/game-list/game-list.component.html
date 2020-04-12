@@ -1,0 +1,85 @@
+<h1>
+  Top Selling Games
+</h1>
+
+<div class="game-list-container">
+  <div class="action-container">
+    <div class="game-search">
+      Search:
+      <input #gameSearch type="text" [value]="searchTerm" />
+      <button #clearSearch class="clear-search">Clear</button>
+
+      <div
+        #autoComplete
+        class="auto-complete"
+        [hidden]="!searchTerm || !showAutoComplete || !autoCompleteList || !autoCompleteList.length"
+      >
+        <div
+          class="auto-complete-row"
+          *ngFor="let game of autoCompleteList"
+          (click)="selectGame(game)"
+        >
+          {{game.Name}}
+        </div>
+      </div>
+    </div>
+
+    <div class="game-sort">
+      Sort By:
+
+      <select name="gameSortby" (change)="onSortChange($event)">
+        <option *ngFor="let option of sortByOptions" [value]="option"
+          >{{option | uppercase}}</option
+        >
+      </select>
+    </div>
+  </div>
+
+  <div class="game-row header-row">
+    <div class="game-cell game-rank">
+      Rank
+    </div>
+    <div class="game-cell game-name">
+      Name
+    </div>
+    <div class="game-cell game-platform">
+      Platform
+    </div>
+    <div class="game-cell game-year">
+      Year
+    </div>
+    <div class="game-cell game-genre">
+      Genre
+    </div>
+    <div class="game-cell game-publisher">
+      Publisher
+    </div>
+    <div class="game-cell game-global-sales">
+      Global Sales
+    </div>
+  </div>
+
+  <div class="game-row" *ngFor="let game of games">
+    <div class="game-cell game-rank">
+      <span [title]="game.Rank">{{game.Rank}}</span>
+    </div>
+    <div class="game-cell game-name">
+      <span [title]="game.Name">{{game.Name}}</span>
+    </div>
+    <div class="game-cell game-platform">
+      <span [title]="game.Platform">{{game.Platform}}</span>
+    </div>
+    <div class="game-cell game-year">
+      <span [title]="game.Year">{{game.Year}}</span>
+    </div>
+    <div class="game-cell game-genre">
+      <span [title]="game.Genre">{{game.Genre}}</span>
+    </div>
+    <div class="game-cell game-publisher">
+      <span [title]="game.Publisher">{{game.Publisher}}</span>
+    </div>
+    <div class="game-cell game-global-sales">
+      <span [title]="game.Global_Sales">{{game.Global_Sales}}</span>
+    </div>
+  </div>
+</div>

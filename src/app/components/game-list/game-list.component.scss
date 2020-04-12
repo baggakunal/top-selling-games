@@ -1,0 +1,119 @@
+game-list {
+  .game-list-container {
+    width: fit-content;
+    min-width: 1000px;
+    margin: 0 auto;
+
+    .action-container {
+      display: flex;
+      justify-content: space-between;
+
+      .game-search {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        > input {
+          margin-left: 5px;
+        }
+
+        .clear-search {
+          margin-left: 5px;
+        }
+      
+        .auto-complete {
+          max-height: 210px;
+          width: 400px;
+          position: absolute;
+          top: 26px;
+          left: 60px;
+          background: white;
+          border: 1px solid;
+          overflow-x: hidden;
+          overflow-y: auto;
+
+          &-row {
+            height: 30px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            &:nth-child(even) {
+              background: lightblue;
+            }
+
+            &:hover {
+              background: #adc6e6;
+            }
+          }
+        }
+      }
+
+      .game-sort {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+        
+        > select {
+          margin-left: 5px;
+        }
+      }
+    }
+
+    .game-row {
+      height: 30px;
+      display: flex;
+
+      &.header-row {
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .game-cell {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-right: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-wrap: break-word;
+
+        &.game-rank {
+          width: 40px;
+        }
+
+        &.game-name {
+          width: 500px;
+        }
+
+        &.game-platform {
+          width: 80px;
+        }
+
+        &.game-year {
+          width: 60px;
+          justify-content: flex-end;
+          padding-right: 5px;
+        }
+
+        &.game-genre {
+          width: 100px;
+        }
+
+        &.game-publisher {
+          width: 100px;
+        }
+
+        &.game-global-sales {
+          width: 110px;
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+}
